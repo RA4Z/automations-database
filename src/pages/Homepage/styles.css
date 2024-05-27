@@ -86,7 +86,7 @@
   bottom: 20px;
   overflow: hidden;
   transition: var(--transition-timing);
-  z-index: 4;
+  z-index: 3;
 }
 
 .card:hover>.card-content {

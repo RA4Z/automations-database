@@ -1,3 +1,4 @@
+import { sendMessage } from 'services/database';
 import { history } from './history'
 
 const {
@@ -54,7 +55,7 @@ const chat = model.startChat({
 async function runChat(paramText: string) {
     const result = await chat.sendMessage(`Reponda a pergunta a seguir no idioma no qual foi perguntado - ${paramText} - Responda a essa pergunta seguindo o contexto do PCP da WEG energia, preste atenção às informações no histórico de conversas. JAMAIS CITE A EXISTÊNCIA DO HISTÓRICO DE NOSSAS CONVERSAS;`)
     const response = result.response;
-    console.log(response.text())
+    
     let formattedText = response.text().replace(/\n/g, ' <br>');
     formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     formattedText = formattedText.replace(/\*/g, "•");
@@ -67,6 +68,7 @@ async function runChat(paramText: string) {
         return `<a href="${match}" style="color:#3B8CED" target="_blank">${match}</a>`;
     });
 
+    await sendMessage(paramText)
     return formattedText;
 }
 
