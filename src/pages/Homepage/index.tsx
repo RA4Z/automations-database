@@ -10,13 +10,10 @@ import Indicadores_ico from 'images/svgs/indicadores.svg'
 import Indicadores_img from 'images/indicadores.jpg'
 
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 
 import chatStyle from './Homepage.module.scss'
-import ChatBot from 'components/ChatBot'
 
 export default function Homepage() {
-    const [chatVisible, setChatVisible] = useState(false)
 
     const navigate = useNavigate()
     const webPages = [
@@ -41,8 +38,7 @@ export default function Homepage() {
     ]
     return (
         <>
-            {!chatVisible && <span className={chatStyle.chat} title='Chatbot do PCP' onClick={() => setChatVisible(true)} />}
-            {chatVisible && <ChatBot visible={chatVisible} setVisible={setChatVisible} />}
+            <a href='http://10.1.43.63:3000'><span className={chatStyle.chat} title='Chatbot do PCP' /></a>
             <h3 style={{ textAlign: 'center', textWrap: 'wrap', paddingBottom: 20 }}>PPC WEN Automation's Database</h3>
             <div className="container">
                 {webPages.map((page, index) => (
