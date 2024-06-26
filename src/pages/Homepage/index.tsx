@@ -38,7 +38,7 @@ export default function Homepage() {
     ]
     return (
         <>
-            <a href='http://10.1.43.63:3000'><span className={chatStyle.chat} title='Chatbot do PCP' /></a>
+            <a href='https://pcp-chatbot.vercel.app/'><span className={chatStyle.chat} title='Chatbot do PCP' /></a>
             <h3 style={{ textAlign: 'center', textWrap: 'wrap', paddingBottom: 20 }}>PPC WEN Automation's Database</h3>
             <div className="container">
                 {webPages.map((page, index) => (
