@@ -3,26 +3,13 @@ import './styles.css'
 import Softwares_ico from 'images/svgs/softwares.svg'
 import Softwares_img from 'images/softwares.jpg'
 
-// import Agenda_ico from 'images/svgs/agenda.svg'
-// import Agenda_img from 'images/agenda.jpg'
-
 import Indicadores_ico from 'images/svgs/indicadores.svg'
 import Indicadores_img from 'images/indicadores.jpg'
-
-import { useNavigate } from 'react-router-dom'
 
 import chatStyle from './Homepage.module.scss'
 
 export default function Homepage() {
-
-    const navigate = useNavigate()
     const webPages = [
-        // {
-        //     name: 'Agenda',
-        //     link: '/Agenda',
-        //     image: Agenda_img,
-        //     icon: Agenda_ico
-        // },
         {
             name: 'Softwares',
             link: '/Softwares',
@@ -31,7 +18,7 @@ export default function Homepage() {
         },
         {
             name: 'Indicadores',
-            link: '/Indicadores',
+            link: 'https://wen-indicators.vercel.app/',
             image: Indicadores_img,
             icon: Indicadores_ico
         },
@@ -42,7 +29,7 @@ export default function Homepage() {
             <h3 style={{ textAlign: 'center', textWrap: 'wrap', paddingBottom: 20 }}>PPC WEN Automation's Database</h3>
             <div className="container">
                 {webPages.map((page, index) => (
-                    <div className="card" key={index} onClick={() => navigate(page.link)}>
+                    <a href={page.link} className="card" key={index}>
                         <img className="background" src={page.image} alt="" />
                         <div className="card-content">
                             <div className="profile-image">
@@ -51,7 +38,7 @@ export default function Homepage() {
                             <h3 className="title">{page.name}</h3>
                         </div>
                         <div className="backdrop"></div>
-                    </div>
+                    </a>
                 ))}
             </div>
         </>
